@@ -18,7 +18,7 @@ const options = {
   minuteIncrement: 1,
   onClose(selectedDates) {
     if (new Date().getTime() < selectedDates[0].getTime()) {
-      onbtn(btnStart);
+      onEl(btnStart);
     } else {
       offEl(btnStart);
       Notify.failure('Please choose a date in the future');
@@ -44,6 +44,7 @@ function startTaimer(e) {
     if (taimetSeconds < 0) {
       clearInterval(timerId);
       Notify.success('That time has come');
+      onEl(picker);
     }
   }, 1000);
 }
@@ -59,7 +60,7 @@ function offEl(btn) {
   btn.setAttribute('disabled', 'disabled');
 }
 
-function onbtn(btn) {
+function onEl(btn) {
   btn.removeAttribute('disabled');
 }
 
