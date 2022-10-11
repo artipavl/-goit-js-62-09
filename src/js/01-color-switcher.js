@@ -7,15 +7,15 @@ let changeBogyColor = false;
 btnStart.addEventListener('click', onBodyColorStart);
 btnStop.addEventListener('click', onBodyColorStop);
 
-offbtn(btnStop);
+offEl(btnStop);
 
 function onBodyColorStart(e) {
     if (changeBogyColor) {
         return;
     }
     
-    offbtn(e.currentTarget);
-    onbtn(btnStop);
+    offEl(e.currentTarget);
+    onEl(btnStop);
     changeBogyColor = true;
     timerId = setInterval(() => {
         document.body.style.backgroundColor = getRandomHexColor();
@@ -25,8 +25,8 @@ function onBodyColorStart(e) {
 function onBodyColorStop() {
     clearInterval(timerId);
     changeBogyColor = false;
-    onbtn(btnStart);
-    offbtn(btnStop);
+    onEl(btnStart);
+    offEl(btnStop);
 }
 
 
@@ -34,10 +34,10 @@ function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 }
 
-function offbtn(btn) {
+function offEl(btn) {
     btn.setAttribute("disabled", "disabled");
 }
 
-function onbtn(btn) {
+function onEl(btn) {
     btn.removeAttribute("disabled");
 }
