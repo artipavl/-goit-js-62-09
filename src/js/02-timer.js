@@ -38,7 +38,7 @@ function startTaimer(e) {
   const defoltData = new Date().getTime();
   const selectedDates = dataSelected.selectedDates[0].getTime();
   let taimetSeconds = selectedDates - defoltData;
-  timerId = setInterval(() => {
+  const timerId = setInterval(() => {
     onPrintTime(convertMs(taimetSeconds));
     taimetSeconds -= 1000;
     if (taimetSeconds < 0) {
