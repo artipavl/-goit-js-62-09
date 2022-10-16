@@ -9,6 +9,11 @@ formEl.addEventListener('submit', onFormSubmit);
 
 function onFormSubmit(e) {
   e.preventDefault();
+  
+  if (delay.value < 0 || step.value < 0 || amount.value < 0) {
+    Notify.failure('Зачення повинні бути додатні');
+    return;
+  }
 
   let deleyP = Number(delay.value);
   let stepP = Number(step.value);
