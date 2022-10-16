@@ -9,9 +9,9 @@ formEl.addEventListener('submit', onFormSubmit);
 
 function onFormSubmit(e) {
   e.preventDefault();
-  
+
   if (delay.value < 0 || step.value < 0 || amount.value < 0) {
-    Notify.failure('Зачення повинні бути додатні');
+    Notify.failure('Значення повинні бути додатні');
     return;
   }
 
